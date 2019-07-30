@@ -21,6 +21,10 @@
 		C171CCC322EFDB1F00ECE53D /* playLocalVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171CCC222EFDB1F00ECE53D /* playLocalVideoVC.swift */; };
 		C171CCC622EFDC7300ECE53D /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171CCC522EFDC7300ECE53D /* VideoCell.swift */; };
 		C171CCC822F030B700ECE53D /* emoji zone.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C171CCC722F030B700ECE53D /* emoji zone.mp4 */; };
+		C171CCCB22F03D0E00ECE53D /* SnapChatViewMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171CCCA22F03D0E00ECE53D /* SnapChatViewMenuVC.swift */; };
+		C171CCCD22F03D2E00ECE53D /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171CCCC22F03D2E00ECE53D /* CameraVC.swift */; };
+		C171CCCF22F03D4400ECE53D /* RightViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171CCCE22F03D4400ECE53D /* RightViewVC.swift */; };
+		C171CCD122F03DDF00ECE53D /* LeftViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171CCD022F03DDF00ECE53D /* LeftViewVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		C171CCC222EFDB1F00ECE53D /* playLocalVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playLocalVideoVC.swift; sourceTree = "<group>"; };
 		C171CCC522EFDC7300ECE53D /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		C171CCC722F030B700ECE53D /* emoji zone.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "emoji zone.mp4"; sourceTree = "<group>"; };
+		C171CCCA22F03D0E00ECE53D /* SnapChatViewMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapChatViewMenuVC.swift; sourceTree = "<group>"; };
+		C171CCCC22F03D2E00ECE53D /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		C171CCCE22F03D4400ECE53D /* RightViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightViewVC.swift; sourceTree = "<group>"; };
+		C171CCD022F03DDF00ECE53D /* LeftViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +139,7 @@
 				C171CCC422EFDC5100ECE53D /* day02playLocalVideo */,
 				C15DB4AF22E82AAE0010C633 /* Shape.swift */,
 				C16A763322EE990700D6665F /* Const.swift */,
+				C171CCC922F03CE700ECE53D /* day03SnapChatMenu */,
 				C15DB48522E82A970010C633 /* Main.storyboard */,
 				C15DB48822E82A990010C633 /* Assets.xcassets */,
 				C15DB48A22E82A990010C633 /* LaunchScreen.storyboard */,
@@ -165,6 +174,17 @@
 				C171CCC722F030B700ECE53D /* emoji zone.mp4 */,
 			);
 			path = day02playLocalVideo;
+			sourceTree = "<group>";
+		};
+		C171CCC922F03CE700ECE53D /* day03SnapChatMenu */ = {
+			isa = PBXGroup;
+			children = (
+				C171CCCA22F03D0E00ECE53D /* SnapChatViewMenuVC.swift */,
+				C171CCD022F03DDF00ECE53D /* LeftViewVC.swift */,
+				C171CCCC22F03D2E00ECE53D /* CameraVC.swift */,
+				C171CCCE22F03D4400ECE53D /* RightViewVC.swift */,
+			);
+			path = day03SnapChatMenu;
 			sourceTree = "<group>";
 		};
 		E47FF2BD99941C7F5E12925D /* Frameworks */ = {
@@ -334,12 +354,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C15DB48422E82A970010C633 /* ViewController.swift in Sources */,
+				C171CCCD22F03D2E00ECE53D /* CameraVC.swift in Sources */,
 				C171CCC622EFDC7300ECE53D /* VideoCell.swift in Sources */,
 				C16A763422EE990700D6665F /* Const.swift in Sources */,
 				C15DB4B022E82AAE0010C633 /* Shape.swift in Sources */,
 				C15DB48222E82A970010C633 /* AppDelegate.swift in Sources */,
 				C171CCC322EFDB1F00ECE53D /* playLocalVideoVC.swift in Sources */,
+				C171CCCB22F03D0E00ECE53D /* SnapChatViewMenuVC.swift in Sources */,
+				C171CCCF22F03D4400ECE53D /* RightViewVC.swift in Sources */,
 				C171CCC122EFCD5300ECE53D /* RooterVC.swift in Sources */,
+				C171CCD122F03DDF00ECE53D /* LeftViewVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
