@@ -27,7 +27,8 @@ class RooterVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
             ["SnapChatViewMenu","SnapChatViewMenuVC"],
             ["CameraVC","CameraVC"],
             ["day09ImageScrollerVC","day09ImageScrollerVC"],
-            ["day20CollectionViewAnimationVC","day20CollectionViewAnimationVC"]
+            ["day20CollectionViewAnimationVC","day20CollectionViewAnimationVC"],
+            ["day21SwipeableVC","day21SwipeableVC"]
         ]
         return dataSource
     }()
