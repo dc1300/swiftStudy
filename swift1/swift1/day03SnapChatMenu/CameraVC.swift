@@ -9,7 +9,7 @@
 import UIKit
 import AVKit
 
-class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,AVCapturePhotoCaptureDelegate  {
     lazy var cameraView: UIView = {
         let cameraView : UIView = UIView.init(frame: self.view.frame)
         return cameraView;
@@ -21,12 +21,14 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }()
     
     var captureSession : AVCaptureSession?
-    var stillImageOutput : AVCaptureStillImageOutput?
+    var stillImageOutput : AVCapturePhotoOutput?
     var previewLayer : AVCaptureVideoPreviewLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(self.backgroundImageView)
+        self.tempImageView.isUserInteractionEnabled = true
+        view.addSubview(self.cameraView)
+        view.addSubview(self.tempImageView)
         
     }
     
@@ -39,23 +41,87 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         super.viewWillAppear(animated)
         captureSession = AVCaptureSession.init()
         captureSession?.sessionPreset = AVCaptureSession.Preset.hd1920x1080
-        let backCamera = AVCaptureDevice.devices(for: AVMediaType.video).first
+        captureSession!.automaticallyConfiguresCaptureDeviceForWideColor = true
+        let device = AVCaptureDevice.default(for: .video)
+        guard device != nil else { return }
         var error : NSError?
-        var input : AVCaptureDeviceInput!
+        var input:AVCaptureDeviceInput!
         do {
-            input = try AVCaptureDeviceInput.init(device: backCamera)
+            input = try AVCaptureDeviceInput.init(device: device!)
+            
         } catch let error1 as NSError {
             error = error1
             input = nil
         }
-//        if (error == nil && captureSession?.canAddInput(input) != nil) {
-//            captureSession?.addInput(input)
-//            stillImageOutput = AVCaptureInput
-//            stillImageOutput?.outputSettings = [AVVideoCodecKey : AVVideoCodecType.jpeg]
-//            if let stillImageOutputTemp = stillImageOutput{
-//                captureSession?.addOutput(stillImageOutput)
-//                
-//            }
-//        }
+        if (error == nil && captureSession?.canAddInput(input) != nil) {
+            captureSession?.addInput(input)
+            stillImageOutput = AVCapturePhotoOutput.init()
+            if let stillImageOutputTemp = stillImageOutput {
+                if captureSession?.canAddOutput(stillImageOutputTemp) != nil {
+                    captureSession?.addOutput(stillImageOutputTemp)
+                    if let captureSessionTemp = captureSession {
+                        previewLayer = AVCaptureVideoPreviewLayer.init(session: captureSessionTemp)
+                        previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspect
+                        previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait
+                        cameraView.layer.addSublayer(previewLayer!)
+                        captureSession?.commitConfiguration()
+                        captureSession?.startRunning()
+                    }
+                }
+            }
+        }
+        
+    }
+    func didPressTakePhoto(){
+        if let videoConnection = stillImageOutput?.connection(with: AVMediaType.video) {
+            videoConnection.videoOrientation = AVCaptureVideoOrientation.portrait
+            let settings = AVCapturePhotoSettings()
+            if settings.availablePreviewPhotoPixelFormatTypes.count > 0 {
+                settings.previewPhotoFormat = [ kCVPixelBufferPixelFormatTypeKey as String : settings.availablePreviewPhotoPixelFormatTypes.first!]
+            }
+            stillImageOutput!.capturePhoto(with: settings, delegate: self)
+        
+
+        }
+    }
+    func photoOutput(_ captureOutput: AVCapturePhotoOutput,  didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?,  previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings:  AVCaptureResolvedPhotoSettings, bracketSettings:   AVCaptureBracketedStillImageSettings?, error: Error?) {
+        if let error = error {
+            print("-----error occure : \(error.localizedDescription)")
+        }
+        if let sampleBuffer = photoSampleBuffer {
+            let previewBuffer = previewPhotoSampleBuffer
+
+            let dataImage = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: sampleBuffer, previewPhotoSampleBuffer: previewBuffer)!
+            
+            print(UIImage.init(data: dataImage)?.size as Any)
+            
+            let dataProvider = CGDataProvider.init(data: dataImage as CFData)
+            let cgImageRef: CGImage! = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: .defaultIntent)
+            let image = UIImage.init(cgImage: cgImageRef, scale: 1.0, orientation: UIImage.Orientation.right)
+            self.tempImageView.image = image;
+            self.tempImageView.isHidden = false
+        }
+        
+    }
+    
+    var didTakePhoto = Bool()
+    
+    func didPressTakeAnother(){
+        if didTakePhoto == true{
+            tempImageView.isHidden = true
+            didTakePhoto = false
+            
+        }
+        else{
+            captureSession?.startRunning()
+            didTakePhoto = true
+            didPressTakePhoto()
+            
+        }
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        didPressTakeAnother()
     }
 }

@@ -8,12 +8,34 @@
 
 import UIKit
 
-class SnapChatViewMenuVC: UIViewController {
+class SnapChatViewMenuVC: UIViewController , UIScrollViewDelegate{
 
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView.init(frame: self.view.frame)
+        scrollView.delegate = self
+        return scrollView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let leftView:LeftViewVC = LeftViewVC.init()
+        let centerView:CameraVC = CameraVC.init()
+        let rightView:RightViewVC = RightViewVC.init()
+        leftView.view.frame = CGRect.init(x: 0, y: 0, width: __kScreenWidth__, height: __kScreenHeight__)
+        centerView.view.frame = CGRect.init(x: __kScreenWidth__, y: 0, width: __kScreenWidth__, height: __kScreenHeight__)
+        rightView.view.frame = CGRect.init(x: 2*__kScreenWidth__, y: 0, width: __kScreenWidth__, height: __kScreenHeight__)
+        
+        self.addChild(leftView)
+        self.addChild(centerView)
+        self.addChild(rightView)
+        self.view.addSubview(self.scrollView)
+        self.scrollView.addSubview(leftView.view)
+        self.scrollView.addSubview(centerView.view)
+        self.scrollView.addSubview(rightView.view)
+        self.scrollView.contentSize = CGSize.init(width: __kScreenWidth__*3, height: __kScreenHeight__)
+        
+        
     }
     
 

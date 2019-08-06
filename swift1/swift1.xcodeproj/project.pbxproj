@@ -25,6 +25,11 @@
 		C171CCCD22F03D2E00ECE53D /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171CCCC22F03D2E00ECE53D /* CameraVC.swift */; };
 		C171CCCF22F03D4400ECE53D /* RightViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171CCCE22F03D4400ECE53D /* RightViewVC.swift */; };
 		C171CCD122F03DDF00ECE53D /* LeftViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C171CCD022F03DDF00ECE53D /* LeftViewVC.swift */; };
+		C1D5AED722F90C8200DC11BE /* day09ImageScrollerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5AED622F90C8200DC11BE /* day09ImageScrollerVC.swift */; };
+		C1D5AEDA22F92E6000DC11BE /* AnimationImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5AED922F92E6000DC11BE /* AnimationImageCollection.swift */; };
+		C1D5AEDE22F92EF700DC11BE /* AnimationCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5AEDD22F92EF700DC11BE /* AnimationCellModel.swift */; };
+		C1D5AEE022F94D8100DC11BE /* AnimationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5AEDF22F94D8100DC11BE /* AnimationCollectionViewCell.swift */; };
+		C1D5AEE222F9532E00DC11BE /* day20CollectionViewAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D5AEE122F9532E00DC11BE /* day20CollectionViewAnimationVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,11 @@
 		C171CCCC22F03D2E00ECE53D /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		C171CCCE22F03D4400ECE53D /* RightViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightViewVC.swift; sourceTree = "<group>"; };
 		C171CCD022F03DDF00ECE53D /* LeftViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewVC.swift; sourceTree = "<group>"; };
+		C1D5AED622F90C8200DC11BE /* day09ImageScrollerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day09ImageScrollerVC.swift; sourceTree = "<group>"; };
+		C1D5AED922F92E6000DC11BE /* AnimationImageCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationImageCollection.swift; sourceTree = "<group>"; };
+		C1D5AEDD22F92EF700DC11BE /* AnimationCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCellModel.swift; sourceTree = "<group>"; };
+		C1D5AEDF22F94D8100DC11BE /* AnimationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1D5AEE122F9532E00DC11BE /* day20CollectionViewAnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day20CollectionViewAnimationVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,11 +145,13 @@
 			children = (
 				C15DB48122E82A970010C633 /* AppDelegate.swift */,
 				C171CCC022EFCD5300ECE53D /* RooterVC.swift */,
-				C15DB48322E82A970010C633 /* ViewController.swift */,
-				C171CCC422EFDC5100ECE53D /* day02playLocalVideo */,
 				C15DB4AF22E82AAE0010C633 /* Shape.swift */,
+				C15DB48322E82A970010C633 /* ViewController.swift */,
 				C16A763322EE990700D6665F /* Const.swift */,
+				C171CCC422EFDC5100ECE53D /* day02playLocalVideo */,
 				C171CCC922F03CE700ECE53D /* day03SnapChatMenu */,
+				C1D5AED522F90A4600DC11BE /* day09ImageScroller */,
+				C1D5AED822F91E5D00DC11BE /* day20CollectionViewAnimation */,
 				C15DB48522E82A970010C633 /* Main.storyboard */,
 				C15DB48822E82A990010C633 /* Assets.xcassets */,
 				C15DB48A22E82A990010C633 /* LaunchScreen.storyboard */,
@@ -185,6 +197,25 @@
 				C171CCCE22F03D4400ECE53D /* RightViewVC.swift */,
 			);
 			path = day03SnapChatMenu;
+			sourceTree = "<group>";
+		};
+		C1D5AED522F90A4600DC11BE /* day09ImageScroller */ = {
+			isa = PBXGroup;
+			children = (
+				C1D5AED622F90C8200DC11BE /* day09ImageScrollerVC.swift */,
+			);
+			path = day09ImageScroller;
+			sourceTree = "<group>";
+		};
+		C1D5AED822F91E5D00DC11BE /* day20CollectionViewAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				C1D5AED922F92E6000DC11BE /* AnimationImageCollection.swift */,
+				C1D5AEDD22F92EF700DC11BE /* AnimationCellModel.swift */,
+				C1D5AEDF22F94D8100DC11BE /* AnimationCollectionViewCell.swift */,
+				C1D5AEE122F9532E00DC11BE /* day20CollectionViewAnimationVC.swift */,
+			);
+			path = day20CollectionViewAnimation;
 			sourceTree = "<group>";
 		};
 		E47FF2BD99941C7F5E12925D /* Frameworks */ = {
@@ -353,17 +384,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D5AEDE22F92EF700DC11BE /* AnimationCellModel.swift in Sources */,
 				C15DB48422E82A970010C633 /* ViewController.swift in Sources */,
 				C171CCCD22F03D2E00ECE53D /* CameraVC.swift in Sources */,
+				C1D5AEDA22F92E6000DC11BE /* AnimationImageCollection.swift in Sources */,
+				C1D5AED722F90C8200DC11BE /* day09ImageScrollerVC.swift in Sources */,
 				C171CCC622EFDC7300ECE53D /* VideoCell.swift in Sources */,
 				C16A763422EE990700D6665F /* Const.swift in Sources */,
 				C15DB4B022E82AAE0010C633 /* Shape.swift in Sources */,
 				C15DB48222E82A970010C633 /* AppDelegate.swift in Sources */,
 				C171CCC322EFDB1F00ECE53D /* playLocalVideoVC.swift in Sources */,
 				C171CCCB22F03D0E00ECE53D /* SnapChatViewMenuVC.swift in Sources */,
+				C1D5AEE022F94D8100DC11BE /* AnimationCollectionViewCell.swift in Sources */,
 				C171CCCF22F03D4400ECE53D /* RightViewVC.swift in Sources */,
 				C171CCC122EFCD5300ECE53D /* RooterVC.swift in Sources */,
 				C171CCD122F03DDF00ECE53D /* LeftViewVC.swift in Sources */,
+				C1D5AEE222F9532E00DC11BE /* day20CollectionViewAnimationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,6 +576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2CF2K69ZFQ;
 				INFOPLIST_FILE = swift1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -558,6 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2CF2K69ZFQ;
 				INFOPLIST_FILE = swift1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -13,10 +13,10 @@ var counter = 0.0
 var timer = Timer()
 var isPlaying = false
 
-let kTopViewHeight = kScreenHeight * 0.4 //倒计时试图高度
-let kButtonHeight = kScreenHeight * 0.6  //开始暂停按钮高度
-let kPauseButtonWidth = kScreenWidth * 0.4 //暂停按钮宽度
-let kStartButtonWidth = kScreenWidth * 0.6 //开始按钮高度
+let kTopViewHeight = __kScreenHeight__ * 0.4 //倒计时试图高度
+let kButtonHeight = __kScreenHeight__ * 0.6  //开始暂停按钮高度
+let kPauseButtonWidth = __kScreenWidth__ * 0.4 //暂停按钮宽度
+let kStartButtonWidth = __kScreenWidth__ * 0.6 //开始按钮高度
 
 class ViewController: UIViewController {
     //MARK - 懒加载
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         return label
     }()
     private lazy var topBackgroundView: UIView = {
-        let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: kTopViewHeight))
+        let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: __kScreenWidth__, height: kTopViewHeight))
         view.backgroundColor = UIColor.black
         return view
     }()
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
         self.view.addSubview(self.topBackgroundView)
         self.topBackgroundView.addSubview(self.showLabel)
         self.showLabel.snp_makeConstraints { (make) in
-            make.width.equalTo(kScreenWidth)
+            make.width.equalTo(__kScreenWidth__)
             make.height.equalTo(137)
             make.centerX.equalTo(self.topBackgroundView.snp_centerX)
             make.centerY.equalTo(self.topBackgroundView.snp_centerY)

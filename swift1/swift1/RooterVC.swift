@@ -21,8 +21,14 @@ class RooterVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
     }()
     
     lazy var dataSource: [[String]] = {
-        let dataSource = [["字体","ViewController"],
-                          ["playLocalVideo","playLocalVideoVC"]]
+        let dataSource = [
+            ["字体","ViewController"],
+            ["playLocalVideo","playLocalVideoVC"],
+            ["SnapChatViewMenu","SnapChatViewMenuVC"],
+            ["CameraVC","CameraVC"],
+            ["day09ImageScrollerVC","day09ImageScrollerVC"],
+            ["day20CollectionViewAnimationVC","day20CollectionViewAnimationVC"]
+        ]
         return dataSource
     }()
     
